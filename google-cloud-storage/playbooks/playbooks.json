@@ -1,0 +1,1405 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@type": "WorkflowCollection",
+      "name": "Sample - Google Cloud Storage - 1.0.0",
+      "description": "Sample playbooks for \"Google Cloud Storage\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
+      "visible": true,
+      "image": "/api/3/images/08e5d267-6882-4fb4-98eb-6723425b6581",
+      "uuid": "b046f25a-37cc-42ad-9a0f-f42eacfef6b4",
+      "id": 411,
+      "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+      "createDate": 1632729446,
+      "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+      "modifyDate": 1632729446,
+      "recordTags": [],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Buckets List Policy",
+          "aliasName": null,
+          "tag": "#google-cloud-storage",
+          "description": "Retrieves a list of access control entries associated with a bucket from Google Cloud Storage based on the bucket name you have specified.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1632373814,
+          "collection": "/api/3/workflow_collections/b046f25a-37cc-42ad-9a0f-f42eacfef6b4",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/e39073f7-a28d-4f1b-af3f-f65bb3d94199",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Buckets List Policy",
+              "description": null,
+              "arguments": {
+                "name": "Google Cloud Storage",
+                "config": "",
+                "params": {
+                  "bucket": "my-first-fortisoar-bucket"
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-storage",
+                "operation": "get_buckets_list_policy",
+                "operationTitle": "Get Buckets List Policy",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "bb620f9c-a8b1-49f5-b5e9-93b2fb6c4639",
+              "id": 12183
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "efcb7435-ae08-4afb-ad21-cf3928faf4d6",
+                "title": "Google Cloud Storage: Get Buckets List Policy",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "e39073f7-a28d-4f1b-af3f-f65bb3d94199",
+              "id": 12184
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Buckets List Policy",
+              "targetStep": "/api/3/workflow_steps/bb620f9c-a8b1-49f5-b5e9-93b2fb6c4639",
+              "sourceStep": "/api/3/workflow_steps/e39073f7-a28d-4f1b-af3f-f65bb3d94199",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "112c4095-8c19-4901-a392-2ba6d1626ece"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "065ed885-e556-4ab5-88b1-8da516f50112",
+          "recordTags": [
+            "Google",
+            "google-cloud-storage"
+          ],
+          "id": 4121,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1632729446,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1632729446,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create Bucket Policy",
+          "aliasName": null,
+          "tag": "#google-cloud-storage",
+          "description": "Creates a access control entry on the specified bucket on your configured Google Cloud Storage server based on the bucket name and other input parameters you have specified.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1632373698,
+          "collection": "/api/3/workflow_collections/b046f25a-37cc-42ad-9a0f-f42eacfef6b4",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/b29f4bb3-10f7-43be-b5b8-4d367c31c736",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "f8d34ffc-f7e2-44b6-85e3-d0a9d8e9bff3",
+                "title": "Google Cloud Storage: Create Bucket Policy",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "b29f4bb3-10f7-43be-b5b8-4d367c31c736",
+              "id": 12185
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Bucket Policy",
+              "description": null,
+              "arguments": {
+                "name": "Google Cloud Storage",
+                "config": "",
+                "params": {
+                  "role": "OWNER",
+                  "bucket": "my-first-fortisoar-bucket",
+                  "entity": "user-liz@example.com",
+                  "additional_fields": ""
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-storage",
+                "operation": "create_bucket_policy",
+                "operationTitle": "Create Bucket Policy",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "e0c64651-d214-4cb1-8010-81e0d93d7fbd",
+              "id": 12186
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Create Bucket Policy",
+              "targetStep": "/api/3/workflow_steps/e0c64651-d214-4cb1-8010-81e0d93d7fbd",
+              "sourceStep": "/api/3/workflow_steps/b29f4bb3-10f7-43be-b5b8-4d367c31c736",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "12e619f1-8b19-42ad-bb2f-cbc28e4e5a28"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "1ebfa5ed-4ce4-43d1-a1fd-11ad7a86501b",
+          "recordTags": [
+            "Google",
+            "google-cloud-storage"
+          ],
+          "id": 4122,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1632729446,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1632729446,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Buckets List",
+          "aliasName": null,
+          "tag": "#google-cloud-storage",
+          "description": "Retrieves a list of buckets associated with a project from Google Cloud Storage based on the project and other input parameters you have specified.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1632373252,
+          "collection": "/api/3/workflow_collections/b046f25a-37cc-42ad-9a0f-f42eacfef6b4",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/10269fff-c557-42c9-8370-2b77b013fd66",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "7008e129-6e44-4378-b827-2f8d4d9265d2",
+                "title": "Google Cloud Storage: Get Buckets List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "10269fff-c557-42c9-8370-2b77b013fd66",
+              "id": 12187
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Buckets List",
+              "description": null,
+              "arguments": {
+                "name": "Google Cloud Storage",
+                "config": "",
+                "params": {
+                  "prefix": "",
+                  "project": "fortisoar-storage",
+                  "pageToken": "",
+                  "maxResults": "",
+                  "projection": "Default Properties"
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-storage",
+                "operation": "get_buckets_list",
+                "operationTitle": "Get Buckets List",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "2e10ccac-e770-4ed9-9811-5f99c7ec8324",
+              "id": 12188
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Buckets List",
+              "targetStep": "/api/3/workflow_steps/2e10ccac-e770-4ed9-9811-5f99c7ec8324",
+              "sourceStep": "/api/3/workflow_steps/10269fff-c557-42c9-8370-2b77b013fd66",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "a9f24ac8-8fe6-46bb-9440-1959c2511a03"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "20bc589a-2493-493e-99a5-a8bdc7c31efa",
+          "recordTags": [
+            "Google",
+            "google-cloud-storage"
+          ],
+          "id": 4123,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1632729446,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1632729446,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Delete Bucket",
+          "aliasName": null,
+          "tag": "#google-cloud-storage",
+          "description": "Deletes the specified bucket in Google Cloud Storage server based on the bucket name and other input parameter you have specified.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1632373541,
+          "collection": "/api/3/workflow_collections/b046f25a-37cc-42ad-9a0f-f42eacfef6b4",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/bf3c5730-bb31-44d9-bc43-7217be16f591",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Delete Bucket",
+              "description": null,
+              "arguments": {
+                "name": "Google Cloud Storage",
+                "config": "",
+                "params": {
+                  "bucket": "my-first-fortisoar-bucket",
+                  "ifMetagenerationMatch": "",
+                  "ifMetagenerationNotMatch": ""
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-storage",
+                "operation": "delete_bucket",
+                "operationTitle": "Delete Bucket",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "4eab2c4c-612b-4ae9-9501-cb6fbfd4f1e6",
+              "id": 12189
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "7dc492b9-e2b8-4659-968d-972b448500d0",
+                "title": "Google Cloud Storage: Delete Bucket",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "bf3c5730-bb31-44d9-bc43-7217be16f591",
+              "id": 12190
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Delete Bucket",
+              "targetStep": "/api/3/workflow_steps/4eab2c4c-612b-4ae9-9501-cb6fbfd4f1e6",
+              "sourceStep": "/api/3/workflow_steps/bf3c5730-bb31-44d9-bc43-7217be16f591",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "6c5da605-cb43-42ab-bb4f-80133f804498"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "31f837fb-c37e-4a28-9355-04aef3894089",
+          "recordTags": [
+            "Google",
+            "google-cloud-storage"
+          ],
+          "id": 4124,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1632729446,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1632729446,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Bucket Policy Object Details",
+          "aliasName": null,
+          "tag": "#google-cloud-storage",
+          "description": "Retrieves a specific access control entry for the specified entity associated with a object from Google Cloud Storage based on the bucket name, object name, entity and other input parameter you have specified.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1632374641,
+          "collection": "/api/3/workflow_collections/b046f25a-37cc-42ad-9a0f-f42eacfef6b4",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/97327dfb-afe4-4ec6-97a1-b79164cd36e5",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Bucket Policy Object Details",
+              "description": null,
+              "arguments": {
+                "name": "Google Cloud Storage",
+                "config": "",
+                "params": {
+                  "bucket": "info.json",
+                  "entity": "user-liz@example.com",
+                  "generation": ""
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-storage",
+                "operation": "get_bucket_object_policy_details",
+                "operationTitle": "Get Bucket Policy Object Details",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "41333218-b19d-4cbd-b2ef-891c035ec3a0",
+              "id": 12191
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "39543868-12c4-4384-9756-71879211baca",
+                "title": "Google Cloud Storage: Get Bucket Policy Object Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "97327dfb-afe4-4ec6-97a1-b79164cd36e5",
+              "id": 12192
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Bucket Policy Object Details",
+              "targetStep": "/api/3/workflow_steps/41333218-b19d-4cbd-b2ef-891c035ec3a0",
+              "sourceStep": "/api/3/workflow_steps/97327dfb-afe4-4ec6-97a1-b79164cd36e5",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "6058fd86-25ab-4cbb-94d3-8df7f66789b7"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "4cfaa32e-3743-4641-ba91-12d593b88673",
+          "recordTags": [
+            "Google",
+            "google-cloud-storage"
+          ],
+          "id": 4125,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1632729446,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1632729446,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Delete Bucket Policy",
+          "aliasName": null,
+          "tag": "#google-cloud-storage",
+          "description": "Deletes the access control entry for specific bucket in Google Cloud Storage server based on the bucket name and entity you have specified.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1632374235,
+          "collection": "/api/3/workflow_collections/b046f25a-37cc-42ad-9a0f-f42eacfef6b4",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/32444e39-2ce7-4531-9947-6be53c2f1d4a",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Delete Bucket Policy",
+              "description": null,
+              "arguments": {
+                "name": "Google Cloud Storage",
+                "config": "",
+                "params": {
+                  "bucket": "my-first-fortisoar-bucket",
+                  "entity": "user-liz@example.com"
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-storage",
+                "operation": "delete_bucket_policy",
+                "operationTitle": "Delete Bucket Policy",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "1cc30744-744f-466a-8e40-e1296f4bcbfb",
+              "id": 12193
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "4e8c0788-4772-44e6-8f0f-ce8960a97fdf",
+                "title": "Google Cloud Storage: Delete Bucket Policy",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "32444e39-2ce7-4531-9947-6be53c2f1d4a",
+              "id": 12194
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Delete Bucket Policy",
+              "targetStep": "/api/3/workflow_steps/1cc30744-744f-466a-8e40-e1296f4bcbfb",
+              "sourceStep": "/api/3/workflow_steps/32444e39-2ce7-4531-9947-6be53c2f1d4a",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "58222107-c4cb-4f68-b450-627554da7937"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "51e013ae-f064-4105-b326-cd0047111e65",
+          "recordTags": [
+            "Google",
+            "google-cloud-storage"
+          ],
+          "id": 4126,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1632729446,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1632729446,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Bucket Policy Details",
+          "aliasName": null,
+          "tag": "#google-cloud-storage",
+          "description": "Retrieves a specific access control entry for the specified entity associated with a bucket from Google Cloud Storage based on the bucket name and entity you have specified.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1632373947,
+          "collection": "/api/3/workflow_collections/b046f25a-37cc-42ad-9a0f-f42eacfef6b4",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/7f060124-8177-40fb-a741-5b6c2df75d01",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Bucket Policy Details",
+              "description": null,
+              "arguments": {
+                "name": "Google Cloud Storage",
+                "config": "",
+                "params": {
+                  "bucket": "my-first-fortisoar-bucket",
+                  "entity": "user-liz@example.com"
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-storage",
+                "operation": "get_bucket_policy_details",
+                "operationTitle": "Get Bucket Policy Details",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "2039ca40-9739-4947-bf8e-2287a8679a14",
+              "id": 12195
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "1c59d0e3-2814-4ff6-b08a-d62da74f6808",
+                "title": "Google Cloud Storage: Get Bucket Policy Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "7f060124-8177-40fb-a741-5b6c2df75d01",
+              "id": 12196
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Bucket Policy Details",
+              "targetStep": "/api/3/workflow_steps/2039ca40-9739-4947-bf8e-2287a8679a14",
+              "sourceStep": "/api/3/workflow_steps/7f060124-8177-40fb-a741-5b6c2df75d01",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "2ce7a0a2-5e35-474f-b5fb-463622902f68"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "5f9317fa-777c-46c4-84d0-a2a043772960",
+          "recordTags": [
+            "Google",
+            "google-cloud-storage"
+          ],
+          "id": 4127,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1632729446,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1632729446,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Bucket Details",
+          "aliasName": null,
+          "tag": "#google-cloud-storage",
+          "description": "Retrieves a specific bucket information from Google Cloud Storage based on the bucket name and other input parameter you have specified.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1632373409,
+          "collection": "/api/3/workflow_collections/b046f25a-37cc-42ad-9a0f-f42eacfef6b4",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/eeaeb356-460d-4e80-8961-7732bf427ed2",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Bucket Details",
+              "description": null,
+              "arguments": {
+                "name": "Google Cloud Storage",
+                "config": "",
+                "params": {
+                  "bucket": "my-first-fortisoar-bucket",
+                  "projection": "Default Properties",
+                  "ifMetagenerationMatch": "",
+                  "ifMetagenerationNotMatch": ""
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-storage",
+                "operation": "get_bucket_details",
+                "operationTitle": "Get Bucket Details",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "843e3d2b-eb36-4bbc-b9b6-fd8b19a01d3b",
+              "id": 12197
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "6a4b3355-3c4a-4999-bdc9-ce522be885dd",
+                "title": "Google Cloud Storage: Get Bucket Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "eeaeb356-460d-4e80-8961-7732bf427ed2",
+              "id": 12198
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Bucket Details",
+              "targetStep": "/api/3/workflow_steps/843e3d2b-eb36-4bbc-b9b6-fd8b19a01d3b",
+              "sourceStep": "/api/3/workflow_steps/eeaeb356-460d-4e80-8961-7732bf427ed2",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "0e5e59b8-28a3-4e67-b2fa-e7e620885891"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "95f46fc1-60c7-4ed4-9cd5-62c1d8d12af4",
+          "recordTags": [
+            "Google",
+            "google-cloud-storage"
+          ],
+          "id": 4128,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1632729446,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1632729446,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Buckets List Object Policy",
+          "aliasName": null,
+          "tag": "#google-cloud-storage",
+          "description": "Retrieves a list of access control entries associated with a object from Google Cloud Storage based on the bucket name, object name and other input parameter you have specified.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1632374517,
+          "collection": "/api/3/workflow_collections/b046f25a-37cc-42ad-9a0f-f42eacfef6b4",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/351e0d37-e689-4748-9fe2-d530f6e2ac03",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "f28febca-9f7e-4b86-9e86-0823eb7ec9d3",
+                "title": "Google Cloud Storage: Get Buckets List Object Policy",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "351e0d37-e689-4748-9fe2-d530f6e2ac03",
+              "id": 12199
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Buckets List Object Policy",
+              "description": null,
+              "arguments": {
+                "name": "Google Cloud Storage",
+                "config": "",
+                "params": {
+                  "bucket": "info.json",
+                  "generation": ""
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-storage",
+                "operation": "get_buckets_list_object_policy",
+                "operationTitle": "Get Buckets List Object Policy",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "900bc77c-d3a9-4445-a609-18aa666def5c",
+              "id": 12200
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Buckets List Object Policy",
+              "targetStep": "/api/3/workflow_steps/900bc77c-d3a9-4445-a609-18aa666def5c",
+              "sourceStep": "/api/3/workflow_steps/351e0d37-e689-4748-9fe2-d530f6e2ac03",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "31e940fb-135d-4170-873c-cba81af32255"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "99281994-ec6b-429c-9668-6e443e3c0056",
+          "recordTags": [
+            "Google",
+            "google-cloud-storage"
+          ],
+          "id": 4129,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1632729446,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1632729446,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Delete Bucket Object Policy",
+          "aliasName": null,
+          "tag": "#google-cloud-storage",
+          "description": "Deletes the access control entry for specific bucket in Google Cloud Storage server based on the bucket name and entity you have specified.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1632374973,
+          "collection": "/api/3/workflow_collections/b046f25a-37cc-42ad-9a0f-f42eacfef6b4",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/574af2b0-bd78-41f9-b4a8-0d73ab80b0dc",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "4848e88b-b052-410f-a513-715635df4cc2",
+                "title": "Google Cloud Storage: Delete Bucket Object Policy",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "574af2b0-bd78-41f9-b4a8-0d73ab80b0dc",
+              "id": 12201
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Delete Bucket Object Policy",
+              "description": null,
+              "arguments": {
+                "name": "Google Cloud Storage",
+                "config": "",
+                "params": {
+                  "bucket": "info.json",
+                  "entity": "allUsers",
+                  "generation": ""
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-storage",
+                "operation": "delete_bucket_object_policy",
+                "operationTitle": "Delete Bucket Object Policy",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "880fa4bb-c591-430d-ad01-e66039b93ff0",
+              "id": 12202
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Delete Bucket Object Policy",
+              "targetStep": "/api/3/workflow_steps/880fa4bb-c591-430d-ad01-e66039b93ff0",
+              "sourceStep": "/api/3/workflow_steps/574af2b0-bd78-41f9-b4a8-0d73ab80b0dc",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "cd5db1d7-a45c-48bd-9fe7-c9c5d936eb14"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "a695a390-3837-4670-9e7d-943b11295876",
+          "recordTags": [
+            "Google",
+            "google-cloud-storage"
+          ],
+          "id": 4130,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1632729446,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1632729446,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Update Bucket Object Policy",
+          "aliasName": null,
+          "tag": "#google-cloud-storage",
+          "description": "Updates a access control entry on specified object on your configured Google Cloud Storage server based on the bucket name, object name, entity and other input parameter you have specified.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1632374841,
+          "collection": "/api/3/workflow_collections/b046f25a-37cc-42ad-9a0f-f42eacfef6b4",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/577423f5-cc1f-45dd-9b51-d6c678dc4f27",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "4f6f2646-2627-49f2-9e0c-0cfbca099fec",
+                "title": "Google Cloud Storage: Update Bucket Object Policy",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "577423f5-cc1f-45dd-9b51-d6c678dc4f27",
+              "id": 12203
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Update Bucket Object Policy",
+              "description": null,
+              "arguments": {
+                "name": "Google Cloud Storage",
+                "config": "",
+                "params": {
+                  "role": "READER",
+                  "bucket": "info.json",
+                  "entity": "allUsers",
+                  "generation": "",
+                  "additional_fields": ""
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-storage",
+                "operation": "update_bucket_object_policy",
+                "operationTitle": "Update Bucket Object Policy",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "5f736546-deb8-4ff1-a2ef-bc2638cb4a4b",
+              "id": 12204
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Update Bucket Object Policy",
+              "targetStep": "/api/3/workflow_steps/5f736546-deb8-4ff1-a2ef-bc2638cb4a4b",
+              "sourceStep": "/api/3/workflow_steps/577423f5-cc1f-45dd-9b51-d6c678dc4f27",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "ec913eb5-22de-4b75-b18c-2bd9c1a020cd"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "cb8be440-2d01-47be-973e-777148b170bf",
+          "recordTags": [
+            "Google",
+            "google-cloud-storage"
+          ],
+          "id": 4131,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1632729446,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1632729446,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create Bucket Object Policy",
+          "aliasName": null,
+          "tag": "#google-cloud-storage",
+          "description": "Creates a access control entry on the specified object for specific bucket on your configured Google Cloud Storage server based on the bucket name, object name and other input parameters you have specified.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1632374399,
+          "collection": "/api/3/workflow_collections/b046f25a-37cc-42ad-9a0f-f42eacfef6b4",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/2b3dc36d-45eb-486d-8d7a-e206b2a1dbd9",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "e0213106-dc1b-4331-bc0a-cc6954703772",
+                "title": "Google Cloud Storage: Create Bucket Object Policy",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "2b3dc36d-45eb-486d-8d7a-e206b2a1dbd9",
+              "id": 12205
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Bucket Object Policy",
+              "description": null,
+              "arguments": {
+                "name": "Google Cloud Storage",
+                "config": "",
+                "params": {
+                  "role": "READER",
+                  "bucket": "info.json",
+                  "entity": "user-liz@example.com",
+                  "generation": ""
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-storage",
+                "operation": "create_bucket_object_policy",
+                "operationTitle": "Create Bucket Object Policy",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "a9a270a7-3766-479d-802f-3aba2f6a4d30",
+              "id": 12206
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Create Bucket Object Policy",
+              "targetStep": "/api/3/workflow_steps/a9a270a7-3766-479d-802f-3aba2f6a4d30",
+              "sourceStep": "/api/3/workflow_steps/2b3dc36d-45eb-486d-8d7a-e206b2a1dbd9",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "84992edb-53d5-4373-93b8-b6a21da826de"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "d6c7381f-e54b-471e-8256-dbf84ff2fca8",
+          "recordTags": [
+            "Google",
+            "google-cloud-storage"
+          ],
+          "id": 4132,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1632729446,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1632729446,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Update Bucket Policy",
+          "aliasName": null,
+          "tag": "#google-cloud-storage",
+          "description": "Updates a access control entry on specified bucket on your configured Google Cloud Storage server based on the bucket name and other input parameters you have specified.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1632374094,
+          "collection": "/api/3/workflow_collections/b046f25a-37cc-42ad-9a0f-f42eacfef6b4",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/9ea13eb4-d27c-4a1e-8ad5-c90f6ffcab26",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Update Bucket Policy",
+              "description": null,
+              "arguments": {
+                "name": "Google Cloud Storage",
+                "config": "",
+                "params": {
+                  "role": "READER",
+                  "bucket": "my-first-fortisoar-bucket",
+                  "entity": "user-liz@example.com",
+                  "additional_fields": ""
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-storage",
+                "operation": "update_bucket_policy",
+                "operationTitle": "Update Bucket Policy",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "235a94fe-31bd-4eef-875c-3f72553859b6",
+              "id": 12207
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "78652d95-b555-4b68-b1aa-a1848213482d",
+                "title": "Google Cloud Storage: Update Bucket Policy",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "9ea13eb4-d27c-4a1e-8ad5-c90f6ffcab26",
+              "id": 12208
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Update Bucket Policy",
+              "targetStep": "/api/3/workflow_steps/235a94fe-31bd-4eef-875c-3f72553859b6",
+              "sourceStep": "/api/3/workflow_steps/9ea13eb4-d27c-4a1e-8ad5-c90f6ffcab26",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "6e94f634-a7dd-40ed-9a66-abb49f022516"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "e6e0930e-407c-4a28-a84a-ba4bb14b982f",
+          "recordTags": [
+            "Google",
+            "google-cloud-storage"
+          ],
+          "id": 4133,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1632729446,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1632729446,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create Bucket",
+          "aliasName": null,
+          "tag": "#google-cloud-storage",
+          "description": "Creates a bucket on your configured Google Cloud Storage server based on the project and other input parameters you have specified.",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1632373127,
+          "collection": "/api/3/workflow_collections/b046f25a-37cc-42ad-9a0f-f42eacfef6b4",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/f6c7f657-8a4e-4f87-9d8c-919f70a0aa20",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Bucket",
+              "description": null,
+              "arguments": {
+                "name": "Google Cloud Storage",
+                "config": "",
+                "params": {
+                  "bucket": "my-first-fortisoar-bucket",
+                  "project": "fortisoar-storage",
+                  "projection": "Default Properties",
+                  "predefinedAcl": "Public ReadWrite",
+                  "additional_fields": "",
+                  "predefinedDefaultObjectAcl": "Public Read"
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-storage",
+                "operation": "create_bucket",
+                "operationTitle": "Create Bucket",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "5f2857be-857d-465d-b932-ddfea36a90f2",
+              "id": 12209
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "0bfa17b9-89ed-4d5d-8903-d720ee1ab40a",
+                "title": "Google Cloud Storage: Create Bucket",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "f6c7f657-8a4e-4f87-9d8c-919f70a0aa20",
+              "id": 12210
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Create Bucket",
+              "targetStep": "/api/3/workflow_steps/5f2857be-857d-465d-b932-ddfea36a90f2",
+              "sourceStep": "/api/3/workflow_steps/f6c7f657-8a4e-4f87-9d8c-919f70a0aa20",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "a4c9f3ec-e7c4-4468-a79c-4890cc05be1e"
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "eeb9b355-4413-44a1-9abb-c3a1435091b2",
+          "recordTags": [
+            "Google",
+            "google-cloud-storage"
+          ],
+          "id": 4134,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1632729446,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1632729446,
+          "owners": [],
+          "isPrivate": false
+        }
+      ]
+    }
+  ],
+  "exported_tags": [
+    "Google",
+    "google-cloud-storage"
+  ]
+}
