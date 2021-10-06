@@ -1,0 +1,971 @@
+{
+  "name": "google-cloud-storage",
+  "label": "Google Cloud Storage",
+  "version": "1.0.0",
+  "description": "Google Cloud Storage is a RESTful online file storage web service for storing and accessing data on Google Cloud Platform infrastructure.This connector facilitates the automated operations related to bucket and access control.",
+  "publisher": "Community",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "category": "IT Services",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "type": "text",
+        "name": "server",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "description": "URL of the Google Cloud Storage endpoint server to which you will connect and perform the automated operations.",
+        "value": "https://storage.googleapis.com"
+      },
+      {
+        "title": "Client ID",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "client_id",
+        "description": "Unique Client ID of the Google Cloud Storage that is used to create an authentication token required to access the API."
+      },
+      {
+        "title": "Client Secret",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "client_secret",
+        "description": "Unique Client Secret of the Google Cloud Storage that is used to create an authentication token required to access the API. For information on how to get the client secret, see 'https://developers.google.com/identity/protocols/oauth2/web-server'."
+      },
+      {
+        "title": "Authorization Code",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "code",
+        "tooltip": "Authorization code that you acquired in the authorization step.",
+        "description": "The authorization code that you acquired during the authorization step. For more information, see the Getting Access Tokens using the OAuth 2.0 method section."
+      },
+      {
+        "title": "Redirect URL",
+        "description": "The redirect_uri of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect_uri's you registered in the app registration portal.",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "redirect_url",
+        "placeholder": "E.g. https://localhost",
+        "tooltip": "The redirect_uri of your app, where authentication responses can be sent and received by your app. The redirect URL that you specify here must exactly match one of the redirect_uri's you have registered in your app registration portal."
+      },
+      {
+        "title": "Verify SSL",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "value": true,
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "create_bucket",
+      "title": "Create Bucket",
+      "description": "Creates a bucket on your configured Google Cloud Storage server based on the project and other input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "create_bucket",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Project",
+          "description": "Project under which you want to create the bucket in Google Cloud Storage Server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "project"
+        },
+        {
+          "title": "Bucket Name",
+          "description": "Name of the bucket which you want to create the bucket in Google Cloud Storage Server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bucket"
+        },
+        {
+          "title": "Predefined Access Control",
+          "description": "(Optional) Predefined set of access controls based on which you want to create bucket in Google Cloud Storage server. You can choose from the following options: Authenticated Read, Private, Project Private, Public Read, or Public ReadWrite.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "name": "predefinedAcl",
+          "options": [
+            "Authenticated Read",
+            "Private",
+            "Project Private",
+            "Public Read",
+            "Public ReadWrite"
+          ]
+        },
+        {
+          "title": "Predefined Default Object Access Control",
+          "description": "(Optional) Predefined set of default object access controls based on which you want to create bucket on your configured Google Cloud Storage server. You can choose from the following options: Authenticated Read, Bucket Owner FullControl, Bucket Owner Read, Private, Project Private, or Public Read.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "name": "predefinedDefaultObjectAcl",
+          "options": [
+            "Authenticated Read",
+            "Bucket Owner FullControl",
+            "Bucket Owner Read",
+            "Private",
+            "Project Private",
+            "Public Read"
+          ]
+        },
+        {
+          "title": "Projection",
+          "description": "(Optional) Projection based on which you want to create bucket on your configured Google Cloud Storage Server. You can choose either All Properties or Default Properties. Default set to 'Default Properties'.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "name": "projection",
+          "options": [
+            "All Properties",
+            "Default Properties"
+          ],
+          "value": "Default Properties"
+        },
+        {
+          "title": "Additional Fields",
+          "name": "additional_fields",
+          "type": "json",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "tooltip": "(Optional) Additional fields, in the JSON format, based on which you want to create bucket in Google Cloud Storage server.",
+          "description": "(Optional) Additional fields, in the JSON format, based on which you want to create bucket in Google Cloud Storage server."
+        }
+      ],
+      "output_schema": {
+        "kind": "",
+        "selfLink": "",
+        "id": "",
+        "name": "",
+        "projectNumber": "",
+        "metageneration": "",
+        "location": "",
+        "storageClass": "",
+        "etag": "",
+        "timeCreated": "",
+        "updated": "",
+        "acl": [
+          {
+            "kind": "",
+            "id": "",
+            "selfLink": "",
+            "bucket": "",
+            "entity": "",
+            "role": "",
+            "etag": "",
+            "projectTeam": {
+              "projectNumber": "",
+              "team": ""
+            }
+          }
+        ],
+        "defaultObjectAcl": [
+          {
+            "kind": "",
+            "entity": "",
+            "role": "",
+            "etag": ""
+          }
+        ],
+        "owner": {
+          "entity": ""
+        },
+        "iamConfiguration": {
+          "bucketPolicyOnly": {
+            "enabled": ""
+          },
+          "uniformBucketLevelAccess": {
+            "enabled": ""
+          },
+          "publicAccessPrevention": ""
+        },
+        "locationType": ""
+      }
+    },
+    {
+      "operation": "get_buckets_list",
+      "title": "Get Buckets List",
+      "description": "Retrieves a list of buckets associated with a project from Google Cloud Storage based on the project and other input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "get_buckets_list",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Project",
+          "description": "Project whose associated buckets you want to retrieve from Google Cloud Storage server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "project"
+        },
+        {
+          "title": "Page Size",
+          "description": "(Optional) Maximum number of results, per page, that this operation should return. By default, this value is set as 200 if 'projection=All Properties' or the value is set as 1000 if 'projection=Default Properties'.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "maxResults"
+        },
+        {
+          "title": "Page Token",
+          "description": "(Optional) NextPageToken position returned by the last request. You can use this parameter to retrieve next page records.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "pageToken"
+        },
+        {
+          "title": "Prefix",
+          "description": "(Optional) Prefix names of buckets using which you want to filter the results retrieved by this operation..",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "prefix"
+        },
+        {
+          "title": "Projection",
+          "description": "(Optional) Projection based on which you want to retrieve buckets on your configured Google Cloud Storage Server. You can choose either All Properties or Default Properties. Default set to 'Default Properties'.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "name": "projection",
+          "options": [
+            "All Properties",
+            "Default Properties"
+          ],
+          "value": "Default Properties"
+        }
+      ],
+      "output_schema": {
+        "kind": "",
+        "nextPageToken": "",
+        "items": [
+          {
+            "kind": "",
+            "selfLink": "",
+            "id": "",
+            "name": "",
+            "projectNumber": "",
+            "metageneration": "",
+            "location": "",
+            "storageClass": "",
+            "etag": "",
+            "timeCreated": "",
+            "updated": "",
+            "iamConfiguration": {
+              "bucketPolicyOnly": {
+                "enabled": ""
+              },
+              "uniformBucketLevelAccess": {
+                "enabled": ""
+              },
+              "publicAccessPrevention": ""
+            },
+            "locationType": ""
+          }
+        ]
+      }
+    },
+    {
+      "operation": "get_bucket_details",
+      "title": "Get Bucket Details",
+      "description": "Retrieves a specific bucket information from Google Cloud Storage based on the bucket name and other input parameter you have specified.",
+      "category": "investigation",
+      "annotation": "get_bucket_details",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Bucket Name",
+          "description": "Name of the bucket whose information you want to retrieve from Google Cloud Storage server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bucket"
+        },
+        {
+          "title": "Meta-generation Match",
+          "description": "(Optional) Makes the return of the bucket metadata conditional on whether the bucket's current meta-generation matches the given value.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "ifMetagenerationMatch"
+        },
+        {
+          "title": "Meta-generation Not Match",
+          "description": "(Optional) Makes the return of the bucket metadata conditional on whether the bucket's current meta-generation does not match the given value.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "ifMetagenerationNotMatch"
+        },
+        {
+          "title": "Projection",
+          "description": "(Optional) Projection based on which you want to retrieve a specific bucket information from Google Cloud Storage Server. You can choose either All Properties or Default Properties. Default set to 'Default Properties'.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "name": "projection",
+          "options": [
+            "All Properties",
+            "Default Properties"
+          ],
+          "value": "Default Properties"
+        }
+      ],
+      "output_schema": {
+        "kind": "",
+        "selfLink": "",
+        "id": "",
+        "name": "",
+        "projectNumber": "",
+        "metageneration": "",
+        "location": "",
+        "storageClass": "",
+        "etag": "",
+        "timeCreated": "",
+        "updated": "",
+        "iamConfiguration": {
+          "bucketPolicyOnly": {
+            "enabled": ""
+          },
+          "uniformBucketLevelAccess": {
+            "enabled": ""
+          },
+          "publicAccessPrevention": ""
+        },
+        "locationType": ""
+      }
+    },
+    {
+      "operation": "delete_bucket",
+      "title": "Delete Bucket",
+      "description": "Deletes the specified bucket in Google Cloud Storage server based on the bucket name and other input parameter you have specified.",
+      "category": "investigation",
+      "annotation": "delete_bucket",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Bucket Name",
+          "description": "Name of the bucket that you want to delete from Google Cloud Storage server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bucket"
+        },
+        {
+          "title": "Meta-generation Match",
+          "description": "(Optional) If set, only deletes the bucket from Google Cloud Storage if its meta-generation matches this value.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "ifMetagenerationMatch"
+        },
+        {
+          "title": "Meta-generation Not Match",
+          "description": "(Optional) If set, only deletes the bucket from Google Cloud Storage if its meta-generation does not match this value.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "ifMetagenerationNotMatch"
+        }
+      ],
+      "output_schema": {
+        "result": ""
+      }
+    },
+    {
+      "operation": "create_bucket_policy",
+      "title": "Create Bucket Policy",
+      "description": "Creates a access control entry on the specified bucket on your configured Google Cloud Storage server based on the bucket name and other input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "create_bucket_policy",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Bucket Name",
+          "description": "Name of the bucket under which you want to create the access control entry in Google Cloud Storage Server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bucket"
+        },
+        {
+          "title": "Entity",
+          "description": "Entity for holding a permissions based on which you want to create access control entry for specific bucket in Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "entity",
+          "tooltip": "Entity for holding a permissions based on which you want to create access control entry for specific bucket in Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "placeholder": "e.g. user-liz@example.com, group-example@googlegroups.com, domain-example.com etc"
+        },
+        {
+          "title": "Role",
+          "description": "Role for the entity based on which you want to create access control entry for specific bucket in Google Cloud Storage server. You can choose from the following options: OWNER, READER, or WRITER.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "name": "role",
+          "options": [
+            "OWNER",
+            "READER",
+            "WRITER"
+          ]
+        },
+        {
+          "title": "Additional Fields",
+          "name": "additional_fields",
+          "type": "json",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "tooltip": "(Optional) Additional fields, in the JSON format, based on which you want to create access control entry for specific bucket in Google Cloud Storage server.",
+          "description": "(Optional) Additional fields, in the JSON format, based on which you want to create access control entry for specific bucket in Google Cloud Storage server."
+        }
+      ],
+      "output_schema": {
+        "kind": "",
+        "id": "",
+        "selfLink": "",
+        "bucket": "",
+        "entity": "",
+        "role": "",
+        "email": "",
+        "etag": ""
+      }
+    },
+    {
+      "operation": "get_buckets_list_policy",
+      "title": "Get Buckets List Policy",
+      "description": "Retrieves a list of access control entries associated with a bucket from Google Cloud Storage based on the bucket name you have specified.",
+      "category": "investigation",
+      "annotation": "get_buckets_list_policy",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Bucket Name",
+          "description": "Name of the bucket whose information you want to retrieve from Google Cloud Storage server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bucket"
+        }
+      ],
+      "output_schema": {
+        "kind": "",
+        "items": [
+          {
+            "kind": "",
+            "id": "",
+            "selfLink": "",
+            "bucket": "",
+            "entity": "",
+            "role": "",
+            "etag": "",
+            "projectTeam": {
+              "projectNumber": "",
+              "team": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "operation": "get_bucket_policy_details",
+      "title": "Get Bucket Policy Details",
+      "description": "Retrieves a specific access control entry for the specified entity associated with a bucket from Google Cloud Storage based on the bucket name and entity you have specified.",
+      "category": "investigation",
+      "annotation": "get_bucket_policy_details",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Bucket Name",
+          "description": "Name of the bucket whose information you want to retrieve from Google Cloud Storage server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bucket"
+        },
+        {
+          "title": "Entity",
+          "description": "Entity for holding a permissions based on which you want to retrieve access control entry for the specified entity associated with a bucket from Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "entity",
+          "tooltip": "Entity for holding a permissions based on which you want to retrieve access control entry for the specified entity associated with a bucket from Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "placeholder": "e.g. user-liz@example.com, group-example@googlegroups.com, domain-example.com etc"
+        }
+      ],
+      "output_schema": {
+        "kind": "",
+        "id": "",
+        "selfLink": "",
+        "bucket": "",
+        "entity": "",
+        "role": "",
+        "email": "",
+        "etag": ""
+      }
+    },
+    {
+      "operation": "update_bucket_policy",
+      "title": "Update Bucket Policy",
+      "description": "Updates a access control entry on specified bucket on your configured Google Cloud Storage server based on the bucket name and other input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "Update_bucket_policy",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Bucket Name",
+          "description": "Name of the bucket under which you want to update the access control entry in Google Cloud Storage Server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bucket"
+        },
+        {
+          "title": "Entity",
+          "description": "Entity for holding a permissions based on which you want to update access control entry for specific bucket in Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "entity",
+          "tooltip": "Entity for holding a permissions based on which you want to update access control entry for specific bucket in Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "placeholder": "e.g. user-liz@example.com, group-example@googlegroups.com, domain-example.com etc"
+        },
+        {
+          "title": "Role",
+          "description": "(Optional) Role for the entity based on which you want to update access control entry for specific bucket in Google Cloud Storage server. You can choose from the following options: OWNER, READER, or WRITER.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "name": "role",
+          "options": [
+            "OWNER",
+            "READER",
+            "WRITER"
+          ]
+        },
+        {
+          "title": "Additional Fields",
+          "name": "additional_fields",
+          "type": "json",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "tooltip": "(Optional) Additional fields, in the JSON format, based on which you want to update access control entry for specific bucket in Google Cloud Storage server.",
+          "description": "(Optional) Additional fields, in the JSON format, based on which you want to update access control entry for specific bucket in Google Cloud Storage server."
+        }
+      ],
+      "output_schema": {
+        "kind": "",
+        "id": "",
+        "selfLink": "",
+        "bucket": "",
+        "entity": "",
+        "role": "",
+        "email": "",
+        "etag": ""
+      }
+    },
+    {
+      "operation": "delete_bucket_policy",
+      "title": "Delete Bucket Policy",
+      "description": "Deletes the access control entry for specific bucket in Google Cloud Storage server based on the bucket name and entity you have specified.",
+      "category": "investigation",
+      "annotation": "delete_bucket_policy",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Bucket Name",
+          "description": "Name of the bucket based on which you want to delete access control entry from Google Cloud Storage server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bucket"
+        },
+        {
+          "title": "Entity",
+          "description": "Entity for holding a permissions based on which you want to delete access control entry for the specified entity associated with a bucket from Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "entity",
+          "tooltip": "Entity for holding a permissions based on which you want to delete access control entry for the specified entity associated with a bucket from Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "placeholder": "e.g. user-liz@example.com, group-example@googlegroups.com, domain-example.com etc"
+        }
+      ],
+      "output_schema": {
+        "result": ""
+      }
+    },
+    {
+      "operation": "create_bucket_object_policy",
+      "title": "Create Bucket Object Policy",
+      "description": "Creates a access control entry on the specified object for specific bucket on your configured Google Cloud Storage server based on the bucket name, object name and other input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "create_bucket_object_policy",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Bucket Name",
+          "description": "Name of the bucket under which you want to create the access control entry in Google Cloud Storage Server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bucket"
+        },
+        {
+          "title": "Object Name",
+          "description": "Name of the object under which you want to create the access control entry in Google Cloud Storage Server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bucket"
+        },
+        {
+          "title": "Entity",
+          "description": "Entity for holding a permissions based on which you want to create access control entry for specific object in Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "entity",
+          "tooltip": "Entity for holding a permissions based on which you want to create access control entry for specific object in Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "placeholder": "e.g. user-liz@example.com, group-example@googlegroups.com, domain-example.com etc"
+        },
+        {
+          "title": "Role",
+          "description": "Role for the entity based on which you want to create access control entry for specific object in Google Cloud Storage server. You can choose from the following options: OWNER, or READER.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "name": "role",
+          "options": [
+            "OWNER",
+            "READER"
+          ]
+        },
+        {
+          "title": "Generation",
+          "description": "(Optional) If present, selects a specific revision of this object (as opposed to the latest version, the default).",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "generation"
+        }
+      ],
+      "output_schema": {
+        "kind": "",
+        "object": "",
+        "generation": "",
+        "id": "",
+        "selfLink": "",
+        "bucket": "",
+        "entity": "",
+        "role": "",
+        "etag": ""
+      }
+    },
+    {
+      "operation": "get_buckets_list_object_policy",
+      "title": "Get Buckets List Object Policy",
+      "description": "Retrieves a list of access control entries associated with a object from Google Cloud Storage based on the bucket name, object name and other input parameter you have specified.",
+      "category": "investigation",
+      "annotation": "get_buckets_list_object_policy",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Bucket Name",
+          "description": "Name of the bucket whose information you want to retrieve from Google Cloud Storage server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bucket"
+        },
+        {
+          "title": "Object Name",
+          "description": "Name of the object under which you want to retrieve the access control entries from Google Cloud Storage Server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bucket"
+        },
+        {
+          "title": "Generation",
+          "description": "(Optional) If present, selects a specific revision of this object (as opposed to the latest version, the default).",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "generation"
+        }
+      ],
+      "output_schema": {
+        "kind": "",
+        "items": [
+          {
+            "kind": "",
+            "object": "",
+            "generation": "",
+            "id": "",
+            "selfLink": "",
+            "bucket": "",
+            "entity": "",
+            "role": "",
+            "etag": ""
+          }
+        ]
+      }
+    },
+    {
+      "operation": "get_bucket_object_policy_details",
+      "title": "Get Bucket Policy Object Details",
+      "description": "Retrieves a specific access control entry for the specified entity associated with a object from Google Cloud Storage based on the bucket name, object name, entity and other input parameter you have specified.",
+      "category": "investigation",
+      "annotation": "get_bucket_object_policy_details",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Bucket Name",
+          "description": "Name of the bucket whose information you want to retrieve from Google Cloud Storage server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bucket"
+        },
+        {
+          "title": "Object Name",
+          "description": "Name of the object under which you want to retrieve the access control entry from Google Cloud Storage Server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bucket"
+        },
+        {
+          "title": "Entity",
+          "description": "Entity for holding a permissions based on which you want to retrieve access control entry for the specified entity associated with a object from Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "entity",
+          "tooltip": "Entity for holding a permissions based on which you want to retrieve access control entry for the specified entity associated with a object from Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "placeholder": "e.g. user-liz@example.com, group-example@googlegroups.com, domain-example.com etc"
+        },
+        {
+          "title": "Generation",
+          "description": "(Optional) If present, selects a specific revision of this object (as opposed to the latest version, the default).",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "generation"
+        }
+      ],
+      "output_schema": {
+        "kind": "",
+        "object": "",
+        "generation": "",
+        "id": "",
+        "selfLink": "",
+        "bucket": "",
+        "entity": "",
+        "role": "",
+        "email": "",
+        "etag": ""
+      }
+    },
+    {
+      "operation": "update_bucket_object_policy",
+      "title": "Update Bucket Object Policy",
+      "description": "Updates a access control entry on specified object on your configured Google Cloud Storage server based on the bucket name, object name, entity and other input parameter you have specified.",
+      "category": "investigation",
+      "annotation": "update_bucket_object_policy",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Bucket Name",
+          "description": "Name of the bucket under which you want to update the access control entry in Google Cloud Storage Server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bucket"
+        },
+        {
+          "title": "Object Name",
+          "description": "Name of the object under which you want to update the access control entry in Google Cloud Storage Server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bucket"
+        },
+        {
+          "title": "Entity",
+          "description": "Entity for holding a permissions based on which you want to update access control entry for specific object in Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "entity",
+          "tooltip": "Entity for holding a permissions based on which you want to update access control entry for specific object in Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "placeholder": "e.g. user-liz@example.com, group-example@googlegroups.com, domain-example.com etc"
+        },
+        {
+          "title": "Role",
+          "description": "Role for the entity based on which you want to update access control entry for specific object in Google Cloud Storage server. You can choose from the following options: OWNER, or READER.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "name": "role",
+          "options": [
+            "OWNER",
+            "READER"
+          ]
+        },
+        {
+          "title": "Generation",
+          "description": "(Optional) If present, selects a specific revision of this object (as opposed to the latest version, the default).",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "generation"
+        },
+        {
+          "title": "Additional Fields",
+          "name": "additional_fields",
+          "type": "json",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "tooltip": "(Optional) Additional fields, in the JSON format, based on which you want to update access control entry for specific object in Google Cloud Storage server.",
+          "description": "(Optional) Additional fields, in the JSON format, based on which you want to update access control entry for specific object in Google Cloud Storage server."
+        }
+      ],
+      "output_schema": {
+        "kind": "",
+        "object": "",
+        "generation": "",
+        "id": "",
+        "selfLink": "",
+        "bucket": "",
+        "entity": "",
+        "role": "",
+        "etag": ""
+      }
+    },
+    {
+      "operation": "delete_bucket_object_policy",
+      "title": "Delete Bucket Object Policy",
+      "description": "Deletes the access control entry for specific bucket in Google Cloud Storage server based on the bucket name and entity you have specified.",
+      "category": "investigation",
+      "annotation": "delete_bucket_object_policy",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Bucket Name",
+          "description": "Name of the bucket based on which you want to delete access control entry for specific object from Google Cloud Storage server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bucket"
+        },
+        {
+          "title": "Object Name",
+          "description": "Name of the object under which you want to delete the access control entry in Google Cloud Storage Server.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "bucket"
+        },
+        {
+          "title": "Entity",
+          "description": "Entity for holding a permissions based on which you want to delete access control entry for the specified entity associated with a object from Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "entity",
+          "tooltip": "Entity for holding a permissions based on which you want to delete access control entry for the specified entity associated with a object from Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "placeholder": "e.g. user-liz@example.com, group-example@googlegroups.com, domain-example.com etc"
+        },
+        {
+          "title": "Generation",
+          "description": "(Optional) If present, selects a specific revision of this object (as opposed to the latest version, the default).",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "generation"
+        }
+      ],
+      "output_schema": {
+        "result": ""
+      }
+    }
+  ]
+}
