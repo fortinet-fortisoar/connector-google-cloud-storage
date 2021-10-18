@@ -2,14 +2,14 @@
   "name": "google-cloud-storage",
   "label": "Google Cloud Storage",
   "version": "1.0.0",
-  "description": "Google Cloud Storage is a RESTful online file storage web service for storing and accessing data on Google Cloud Platform infrastructure.This connector facilitates the automated operations related to bucket and access control.",
+  "description": "Google Cloud Storage is a RESTful online file storage web service for storing and accessing data on Google Cloud Platform infrastructure. This connector facilitates the automated operations related to bucket, bucket objects and bucket policies.",
   "publisher": "Community",
   "cs_approved": false,
   "cs_compatible": true,
   "category": "IT Services",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/google-cloud-storage/176/google-cloud-storage-v1-0-0",
   "configuration": {
     "fields": [
       {
@@ -19,7 +19,7 @@
         "required": true,
         "editable": true,
         "visible": true,
-        "description": "URL of the Google Cloud Storage endpoint server to which you will connect and perform the automated operations.",
+        "description": "URL of the Google Cloud Storage endpoint server to which you will connect to in order to perform automated operations.",
         "value": "https://storage.googleapis.com"
       },
       {
@@ -38,7 +38,7 @@
         "visible": true,
         "type": "password",
         "name": "client_secret",
-        "description": "Unique Client Secret of the Google Cloud Storage that is used to create an authentication token required to access the API. For information on how to get the client secret, see 'https://developers.google.com/identity/protocols/oauth2/web-server'."
+        "description": "Unique Client Secret of the Google Cloud Storage that is used to create an authentication token required to access the API. For information, see Using OAuth 2.0 for Web Server Applications."
       },
       {
         "title": "Authorization Code",
@@ -47,8 +47,8 @@
         "visible": true,
         "type": "password",
         "name": "code",
-        "tooltip": "Authorization code that you acquired in the authorization step.",
-        "description": "The authorization code that you acquired during the authorization step. For more information, see the Getting Access Tokens using the OAuth 2.0 method section."
+        "tooltip": "The authorization code that you acquired during the authorization step. For more information, see Accessing the Cloud Storage API.",
+        "description": "The authorization code that you acquired during the authorization step. For more information, see Accessing the Cloud Storage API."
       },
       {
         "title": "Redirect URL",
@@ -59,7 +59,7 @@
         "type": "text",
         "name": "redirect_url",
         "placeholder": "E.g. https://localhost",
-        "tooltip": "The redirect_uri of your app, where authentication responses can be sent and received by your app. The redirect URL that you specify here must exactly match one of the redirect_uri's you have registered in your app registration portal."
+        "tooltip": "The redirect_uri of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect_uri you registered in the app registration portal."
       },
       {
         "title": "Verify SSL",
@@ -77,14 +77,14 @@
     {
       "operation": "create_bucket",
       "title": "Create Bucket",
-      "description": "Creates a bucket on your configured Google Cloud Storage server based on the project and other input parameters you have specified.",
+      "description": "Creates a bucket on your configured Google Cloud Storage.",
       "category": "investigation",
       "annotation": "create_bucket",
       "enabled": true,
       "parameters": [
         {
           "title": "Project",
-          "description": "Project under which you want to create the bucket in Google Cloud Storage Server.",
+          "description": "Project for which you want to create the bucket in Google Cloud Storage.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -93,7 +93,7 @@
         },
         {
           "title": "Bucket Name",
-          "description": "Name of the bucket which you want to create the bucket in Google Cloud Storage Server.",
+          "description": "Name of the bucket that you want to create in Google Cloud Storage.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -102,7 +102,7 @@
         },
         {
           "title": "Predefined Access Control",
-          "description": "(Optional) Predefined set of access controls based on which you want to create bucket in Google Cloud Storage server. You can choose from the following options: Authenticated Read, Private, Project Private, Public Read, or Public ReadWrite.",
+          "description": "(Optional) Predefined set of access controls based on which you want to create the bucket in Google Cloud Storage. You can choose from the following options: Authenticated Read, Private, Project Private, Public Read, or Public ReadWrite.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -118,7 +118,7 @@
         },
         {
           "title": "Predefined Default Object Access Control",
-          "description": "(Optional) Predefined set of default object access controls based on which you want to create bucket on your configured Google Cloud Storage server. You can choose from the following options: Authenticated Read, Bucket Owner FullControl, Bucket Owner Read, Private, Project Private, or Public Read.",
+          "description": "(Optional) Predefined set of default object access controls based on which you want to create the bucket in Google Cloud Storage. You can choose from the following options: Authenticated Read, Bucket Owner FullControl, Bucket Owner Read, Private, Project Private, or Public Read.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -135,7 +135,7 @@
         },
         {
           "title": "Projection",
-          "description": "(Optional) Projection based on which you want to create bucket on your configured Google Cloud Storage Server. You can choose either All Properties or Default Properties. Default set to 'Default Properties'.",
+          "description": "(Optional) Projection based on which you want to create the bucket in Google Cloud Storage. You can choose either 'All Properties' or 'Default Properties'. Default set to 'Default Properties'.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -154,8 +154,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "(Optional) Additional fields, in the JSON format, based on which you want to create bucket in Google Cloud Storage server.",
-          "description": "(Optional) Additional fields, in the JSON format, based on which you want to create bucket in Google Cloud Storage server."
+          "tooltip": "(Optional) Additional fields, in the JSON format, based on which you want to create the bucket in Google Cloud Storage.",
+          "description": "(Optional) Additional fields, in the JSON format, based on which you want to create the bucket in Google Cloud Storage."
         }
       ],
       "output_schema": {
@@ -211,14 +211,14 @@
     {
       "operation": "get_buckets_list",
       "title": "Get Buckets List",
-      "description": "Retrieves a list of buckets associated with a project from Google Cloud Storage based on the project and other input parameters you have specified.",
+      "description": "Retrieves a list of buckets for a particular project from Google Cloud Storage.",
       "category": "investigation",
       "annotation": "get_buckets_list",
       "enabled": true,
       "parameters": [
         {
           "title": "Project",
-          "description": "Project whose associated buckets you want to retrieve from Google Cloud Storage server.",
+          "description": "Name of the project whose associated buckets you want to retrieve from Google Cloud Storage.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -245,7 +245,7 @@
         },
         {
           "title": "Prefix",
-          "description": "(Optional) Prefix names of buckets using which you want to filter the results retrieved by this operation..",
+          "description": "(Optional) Prefix names of buckets using which you want to filter the results retrieved by this operation.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -254,7 +254,7 @@
         },
         {
           "title": "Projection",
-          "description": "(Optional) Projection based on which you want to retrieve buckets on your configured Google Cloud Storage Server. You can choose either All Properties or Default Properties. Default set to 'Default Properties'.",
+          "description": "(Optional) Projection based on which you want to retrieve the buckets in Google Cloud Storage. You can choose either 'All Properties' or 'Default Properties'. Default set to 'Default Properties'.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -300,14 +300,14 @@
     {
       "operation": "get_bucket_details",
       "title": "Get Bucket Details",
-      "description": "Retrieves a specific bucket information from Google Cloud Storage based on the bucket name and other input parameter you have specified.",
+      "description": "Retrieves the information of the specified bucket from Google Cloud Storage.",
       "category": "investigation",
       "annotation": "get_bucket_details",
       "enabled": true,
       "parameters": [
         {
           "title": "Bucket Name",
-          "description": "Name of the bucket whose information you want to retrieve from Google Cloud Storage server.",
+          "description": "Name of the bucket whose information you want to retrieve from Google Cloud Storage.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -315,8 +315,8 @@
           "name": "bucket"
         },
         {
-          "title": "Meta-generation Match",
-          "description": "(Optional) Makes the return of the bucket metadata conditional on whether the bucket's current meta-generation matches the given value.",
+          "title": "Metageneration Match",
+          "description": "(Optional) Makes the return of the bucket metadata conditional on whether the bucket's current metageneration matches the given value.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -324,8 +324,8 @@
           "name": "ifMetagenerationMatch"
         },
         {
-          "title": "Meta-generation Not Match",
-          "description": "(Optional) Makes the return of the bucket metadata conditional on whether the bucket's current meta-generation does not match the given value.",
+          "title": "Metageneration Not Match",
+          "description": "(Optional) Makes the return of the bucket metadata conditional on whether the bucket's current metageneration does not match the given value.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -334,7 +334,7 @@
         },
         {
           "title": "Projection",
-          "description": "(Optional) Projection based on which you want to retrieve a specific bucket information from Google Cloud Storage Server. You can choose either All Properties or Default Properties. Default set to 'Default Properties'.",
+          "description": "(Optional) Projection based on which you want to retrieve a specific bucket information from Google Cloud Storage. You can choose either 'All Properties' or 'Default Properties'. Default set to 'Default Properties'.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -374,14 +374,14 @@
     {
       "operation": "delete_bucket",
       "title": "Delete Bucket",
-      "description": "Deletes the specified bucket in Google Cloud Storage server based on the bucket name and other input parameter you have specified.",
+      "description": "Deletes the specified bucket from Google Cloud Storage.",
       "category": "investigation",
       "annotation": "delete_bucket",
       "enabled": true,
       "parameters": [
         {
           "title": "Bucket Name",
-          "description": "Name of the bucket that you want to delete from Google Cloud Storage server.",
+          "description": "Name of the bucket that you want to delete from Google Cloud Storage.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -389,8 +389,8 @@
           "name": "bucket"
         },
         {
-          "title": "Meta-generation Match",
-          "description": "(Optional) If set, only deletes the bucket from Google Cloud Storage if its meta-generation matches this value.",
+          "title": "Metageneration Match",
+          "description": "(Optional) If set, only deletes the bucket from Google Cloud Storage if its metageneration matches this value.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -398,8 +398,8 @@
           "name": "ifMetagenerationMatch"
         },
         {
-          "title": "Meta-generation Not Match",
-          "description": "(Optional) If set, only deletes the bucket from Google Cloud Storage if its meta-generation does not match this value.",
+          "title": "Metageneration Not Match",
+          "description": "(Optional) If set, only deletes the bucket from Google Cloud Storage if its metageneration does not match this value.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -414,14 +414,14 @@
     {
       "operation": "create_bucket_policy",
       "title": "Create Bucket Policy",
-      "description": "Creates a access control entry on the specified bucket on your configured Google Cloud Storage server based on the bucket name and other input parameters you have specified.",
+      "description": "Creates an entry in the Access Control List for a specified bucket in Google Cloud Storage.",
       "category": "investigation",
       "annotation": "create_bucket_policy",
       "enabled": true,
       "parameters": [
         {
           "title": "Bucket Name",
-          "description": "Name of the bucket under which you want to create the access control entry in Google Cloud Storage Server.",
+          "description": "Name of the bucket for which you want to create an entry in the Access Control List in Google Cloud Storage.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -430,18 +430,18 @@
         },
         {
           "title": "Entity",
-          "description": "Entity for holding a permissions based on which you want to create access control entry for specific bucket in Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "description": "Name of the entity to be added to a bucket's Access Control List. The entity formats can be one of the following: user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "entity",
-          "tooltip": "Entity for holding a permissions based on which you want to create access control entry for specific bucket in Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "tooltip": "Name of the entity to be added to a bucket's Access Control List. The entity formats can be one of the following: user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
           "placeholder": "e.g. user-liz@example.com, group-example@googlegroups.com, domain-example.com etc"
         },
         {
           "title": "Role",
-          "description": "Role for the entity based on which you want to create access control entry for specific bucket in Google Cloud Storage server. You can choose from the following options: OWNER, READER, or WRITER.",
+          "description": "Role for the entity. You can choose from the following options: OWNER, READER, or WRITER.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -460,8 +460,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "(Optional) Additional fields, in the JSON format, based on which you want to create access control entry for specific bucket in Google Cloud Storage server.",
-          "description": "(Optional) Additional fields, in the JSON format, based on which you want to create access control entry for specific bucket in Google Cloud Storage server."
+          "tooltip": "(Optional) Additional fields, in JSON format, based on which you want to create an entry in the Access Control List for the specified bucket.",
+          "description": "(Optional) Additional fields, in JSON format, based on which you want to create an entry in the Access Control List for the specified bucket."
         }
       ],
       "output_schema": {
@@ -477,15 +477,15 @@
     },
     {
       "operation": "get_buckets_list_policy",
-      "title": "Get Buckets List Policy",
-      "description": "Retrieves a list of access control entries associated with a bucket from Google Cloud Storage based on the bucket name you have specified.",
+      "title": "Get Bucket's List Policy",
+      "description": "Retrieves a list of entries in the Access Control List for a specified bucket in Google Cloud Storage.",
       "category": "investigation",
       "annotation": "get_buckets_list_policy",
       "enabled": true,
       "parameters": [
         {
           "title": "Bucket Name",
-          "description": "Name of the bucket whose information you want to retrieve from Google Cloud Storage server.",
+          "description": "Name of the bucket for which you want to retrieve the entries from its Access Control List.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -515,14 +515,14 @@
     {
       "operation": "get_bucket_policy_details",
       "title": "Get Bucket Policy Details",
-      "description": "Retrieves a specific access control entry for the specified entity associated with a bucket from Google Cloud Storage based on the bucket name and entity you have specified.",
+      "description": "Retrieves the Access Control List for the specified entity in the specified bucket in Google Cloud Storage.",
       "category": "investigation",
       "annotation": "get_bucket_policy_details",
       "enabled": true,
       "parameters": [
         {
           "title": "Bucket Name",
-          "description": "Name of the bucket whose information you want to retrieve from Google Cloud Storage server.",
+          "description": "Name of the bucket whose information you want to retrieve from Google Cloud Storage.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -531,13 +531,13 @@
         },
         {
           "title": "Entity",
-          "description": "Entity for holding a permissions based on which you want to retrieve access control entry for the specified entity associated with a bucket from Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "description": "Name of the entity for which you want to retrieve the Access Control List. The entity formats can be one of the following: user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "entity",
-          "tooltip": "Entity for holding a permissions based on which you want to retrieve access control entry for the specified entity associated with a bucket from Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "tooltip": "Name of the entity for which you want to retrieve the Access Control List. The entity formats can be one of the following: user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
           "placeholder": "e.g. user-liz@example.com, group-example@googlegroups.com, domain-example.com etc"
         }
       ],
@@ -555,7 +555,7 @@
     {
       "operation": "update_bucket_policy",
       "title": "Update Bucket Policy",
-      "description": "Updates a access control entry on specified bucket on your configured Google Cloud Storage server based on the bucket name and other input parameters you have specified.",
+      "description": "Updates the Access Control List for the specified entity in the specified bucket in Google Cloud Storage.",
       "category": "investigation",
       "annotation": "Update_bucket_policy",
       "enabled": true,
@@ -571,18 +571,18 @@
         },
         {
           "title": "Entity",
-          "description": "Entity for holding a permissions based on which you want to update access control entry for specific bucket in Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "description": "Name of the entity for which you want to update the Access Control List for the specified bucket. The entity formats can be one of the following: user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "entity",
-          "tooltip": "Entity for holding a permissions based on which you want to update access control entry for specific bucket in Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "tooltip": "Name of the entity for which you want to update the Access Control List for the specified bucket. The entity formats can be one of the following: user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
           "placeholder": "e.g. user-liz@example.com, group-example@googlegroups.com, domain-example.com etc"
         },
         {
           "title": "Role",
-          "description": "(Optional) Role for the entity based on which you want to update access control entry for specific bucket in Google Cloud Storage server. You can choose from the following options: OWNER, READER, or WRITER.",
+          "description": "(Optional) Role for the entity. You can choose from the following options: OWNER, READER, or WRITER.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -601,8 +601,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "(Optional) Additional fields, in the JSON format, based on which you want to update access control entry for specific bucket in Google Cloud Storage server.",
-          "description": "(Optional) Additional fields, in the JSON format, based on which you want to update access control entry for specific bucket in Google Cloud Storage server."
+          "tooltip": "(Optional) Additional fields, in JSON format, based on which you want to update an entry in the Access Control List for the specified bucket.",
+          "description": "(Optional) Additional fields, in JSON format, based on which you want to update an entry in the Access Control List for the specified bucket."
         }
       ],
       "output_schema": {
@@ -619,14 +619,14 @@
     {
       "operation": "delete_bucket_policy",
       "title": "Delete Bucket Policy",
-      "description": "Deletes the access control entry for specific bucket in Google Cloud Storage server based on the bucket name and entity you have specified.",
+      "description": "Deletes the Access Control List for the specified entity in the specified bucket in Google Cloud Storage.",
       "category": "investigation",
       "annotation": "delete_bucket_policy",
       "enabled": true,
       "parameters": [
         {
           "title": "Bucket Name",
-          "description": "Name of the bucket based on which you want to delete access control entry from Google Cloud Storage server.",
+          "description": "Name of the bucket for which you want to delete an entry in the Access Control List.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -635,13 +635,13 @@
         },
         {
           "title": "Entity",
-          "description": "Entity for holding a permissions based on which you want to delete access control entry for the specified entity associated with a bucket from Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "description": "Name of the entity that you want to remove from the Access Control List for the specified bucket. The entity formats can be one of the following: user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "entity",
-          "tooltip": "Entity for holding a permissions based on which you want to delete access control entry for the specified entity associated with a bucket from Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "tooltip": "Name of the entity that you want to remove from the Access Control List for the specified bucket. The entity formats can be one of the following: user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
           "placeholder": "e.g. user-liz@example.com, group-example@googlegroups.com, domain-example.com etc"
         }
       ],
@@ -652,14 +652,14 @@
     {
       "operation": "create_bucket_object_policy",
       "title": "Create Bucket Object Policy",
-      "description": "Creates a access control entry on the specified object for specific bucket on your configured Google Cloud Storage server based on the bucket name, object name and other input parameters you have specified.",
+      "description": "Creates an entry in the Access Control List for the specified object in Google Cloud Storage.",
       "category": "investigation",
       "annotation": "create_bucket_object_policy",
       "enabled": true,
       "parameters": [
         {
           "title": "Bucket Name",
-          "description": "Name of the bucket under which you want to create the access control entry in Google Cloud Storage Server.",
+          "description": "Name of the bucket for which you want to create an entry in the Access Control List.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -668,7 +668,7 @@
         },
         {
           "title": "Object Name",
-          "description": "Name of the object under which you want to create the access control entry in Google Cloud Storage Server.",
+          "description": "Name of the object for which you want to create an entry in the Access Control List.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -677,18 +677,18 @@
         },
         {
           "title": "Entity",
-          "description": "Entity for holding a permissions based on which you want to create access control entry for specific object in Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "description": "Name of the entity for which you want to create an entry in the Access Control List for the specified object. The entity formats can be one of the following: user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "entity",
-          "tooltip": "Entity for holding a permissions based on which you want to create access control entry for specific object in Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "tooltip": "Name of the entity for which you want to create an entry in the Access Control List for the specified object. The entity formats can be one of the following: user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
           "placeholder": "e.g. user-liz@example.com, group-example@googlegroups.com, domain-example.com etc"
         },
         {
           "title": "Role",
-          "description": "Role for the entity based on which you want to create access control entry for specific object in Google Cloud Storage server. You can choose from the following options: OWNER, or READER.",
+          "description": "Role for the entity. You can choose from the following options: OWNER, or READER.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -723,8 +723,8 @@
     },
     {
       "operation": "get_buckets_list_object_policy",
-      "title": "Get Buckets List Object Policy",
-      "description": "Retrieves a list of access control entries associated with a object from Google Cloud Storage based on the bucket name, object name and other input parameter you have specified.",
+      "title": "Get Bucket's List Object Policy",
+      "description": "Retrieves a list of entries in the Access Control List for the specified object in Google Cloud Storage.",
       "category": "investigation",
       "annotation": "get_buckets_list_object_policy",
       "enabled": true,
@@ -740,7 +740,7 @@
         },
         {
           "title": "Object Name",
-          "description": "Name of the object under which you want to retrieve the access control entries from Google Cloud Storage Server.",
+          "description": "Name of the object inside the bucket for which you want to retrieve the Access Control List.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -777,14 +777,14 @@
     {
       "operation": "get_bucket_object_policy_details",
       "title": "Get Bucket Policy Object Details",
-      "description": "Retrieves a specific access control entry for the specified entity associated with a object from Google Cloud Storage based on the bucket name, object name, entity and other input parameter you have specified.",
+      "description": "Retrieves the Access Control List for the specified entity in the specified object in Google Cloud Storage.",
       "category": "investigation",
       "annotation": "get_bucket_object_policy_details",
       "enabled": true,
       "parameters": [
         {
           "title": "Bucket Name",
-          "description": "Name of the bucket whose information you want to retrieve from Google Cloud Storage server.",
+          "description": "Name of the bucket whose information you want to retrieve from Google Cloud Storage.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -793,7 +793,7 @@
         },
         {
           "title": "Object Name",
-          "description": "Name of the object under which you want to retrieve the access control entry from Google Cloud Storage Server.",
+          "description": "Name of the object for which you want to retrieve the Access Control List.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -802,13 +802,13 @@
         },
         {
           "title": "Entity",
-          "description": "Entity for holding a permissions based on which you want to retrieve access control entry for the specified entity associated with a object from Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "description": "Name of the entity for which you want to retrieve the Access Control List for the specified object. The entity formats can be one of the following: user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "entity",
-          "tooltip": "Entity for holding a permissions based on which you want to retrieve access control entry for the specified entity associated with a object from Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "tooltip": "Name of the entity for which you want to retrieve the Access Control List for the specified object. The entity formats can be one of the following: user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
           "placeholder": "e.g. user-liz@example.com, group-example@googlegroups.com, domain-example.com etc"
         },
         {
@@ -837,14 +837,14 @@
     {
       "operation": "update_bucket_object_policy",
       "title": "Update Bucket Object Policy",
-      "description": "Updates a access control entry on specified object on your configured Google Cloud Storage server based on the bucket name, object name, entity and other input parameter you have specified.",
+      "description": "Updates the Access Control List for the specified entity in the specified object in Google Cloud Storage.",
       "category": "investigation",
       "annotation": "update_bucket_object_policy",
       "enabled": true,
       "parameters": [
         {
           "title": "Bucket Name",
-          "description": "Name of the bucket under which you want to update the access control entry in Google Cloud Storage Server.",
+          "description": "Name of the bucket for which you want to update the entry in the Access Control List.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -853,7 +853,7 @@
         },
         {
           "title": "Object Name",
-          "description": "Name of the object under which you want to update the access control entry in Google Cloud Storage Server.",
+          "description": "Name of the object for which you want to update the Access Control List for the specified bucket.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -862,18 +862,18 @@
         },
         {
           "title": "Entity",
-          "description": "Entity for holding a permissions based on which you want to update access control entry for specific object in Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "description": "Name of the entity for which you want to update the Access Control List for the specified object. The entity formats can be one of the following: user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "entity",
-          "tooltip": "Entity for holding a permissions based on which you want to update access control entry for specific object in Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "tooltip": "Name of the entity for which you want to update the Access Control List for the specified object. The entity formats can be one of the following: user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
           "placeholder": "e.g. user-liz@example.com, group-example@googlegroups.com, domain-example.com etc"
         },
         {
           "title": "Role",
-          "description": "Role for the entity based on which you want to update access control entry for specific object in Google Cloud Storage server. You can choose from the following options: OWNER, or READER.",
+          "description": "Role for the entity. You can choose from the following options: OWNER or READER.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -900,8 +900,8 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "tooltip": "(Optional) Additional fields, in the JSON format, based on which you want to update access control entry for specific object in Google Cloud Storage server.",
-          "description": "(Optional) Additional fields, in the JSON format, based on which you want to update access control entry for specific object in Google Cloud Storage server."
+          "tooltip": "(Optional) Additional fields, in JSON format, based on which you want to update an entry in the Access Control List for the specified bucket.",
+          "description": "(Optional) Additional fields, in JSON format, based on which you want to update an entry in the Access Control List for the specified bucket."
         }
       ],
       "output_schema": {
@@ -919,14 +919,14 @@
     {
       "operation": "delete_bucket_object_policy",
       "title": "Delete Bucket Object Policy",
-      "description": "Deletes the access control entry for specific bucket in Google Cloud Storage server based on the bucket name and entity you have specified.",
+      "description": "Deletes the Access Control List for the specified entity in the specified object in Google Cloud Storage.",
       "category": "investigation",
       "annotation": "delete_bucket_object_policy",
       "enabled": true,
       "parameters": [
         {
           "title": "Bucket Name",
-          "description": "Name of the bucket based on which you want to delete access control entry for specific object from Google Cloud Storage server.",
+          "description": "Name of the bucket for which you want to delete an entry in the Access Control List.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -935,7 +935,7 @@
         },
         {
           "title": "Object Name",
-          "description": "Name of the object under which you want to delete the access control entry in Google Cloud Storage Server.",
+          "description": "Name of the object for which you want to delete the Access Control List for the specified bucket.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -944,13 +944,13 @@
         },
         {
           "title": "Entity",
-          "description": "Entity for holding a permissions based on which you want to delete access control entry for the specified entity associated with a object from Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "description": "Name of the entity for which you want to delete the Access Control List for the specified object. The entity formats can be one of the following: user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "entity",
-          "tooltip": "Entity for holding a permissions based on which you want to delete access control entry for the specified entity associated with a object from Google Cloud Storage server. For example, user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
+          "tooltip": "Name of the entity for which you want to delete the Access Control List for the specified object. The entity formats can be one of the following: user-{email} ,group-{groupId} ,domain-{domain} ,project-{team}-{projectId} ,allUsers ,or allAuthenticatedUsers.",
           "placeholder": "e.g. user-liz@example.com, group-example@googlegroups.com, domain-example.com etc"
         },
         {
