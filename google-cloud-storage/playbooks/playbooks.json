@@ -6,19 +6,19 @@
       "name": "Sample - Google Cloud Storage - 1.0.0",
       "description": "Sample playbooks for \"Google Cloud Storage\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
       "visible": true,
-      "image": "/api/3/images/08e5d267-6882-4fb4-98eb-6723425b6581",
+      "image": "/api/3/images/b10d4af2-5205-4419-b6be-eda484bdf5bd",
       "uuid": "b046f25a-37cc-42ad-9a0f-f42eacfef6b4",
-      "id": 411,
+      "id": 553,
       "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-      "createDate": 1632729446,
+      "createDate": 1634565119,
       "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-      "modifyDate": 1632729446,
+      "modifyDate": 1634565119,
       "recordTags": [],
       "workflows": [
         {
           "@type": "Workflow",
           "triggerLimit": null,
-          "name": "Get Buckets List Policy",
+          "name": "Get Bucket's List Policy",
           "aliasName": null,
           "tag": "#google-cloud-storage",
           "description": "Retrieves a list of access control entries associated with a bucket from Google Cloud Storage based on the bucket name you have specified.",
@@ -27,7 +27,7 @@
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1632373814,
+          "lastModifyDate": 1634565368,
           "collection": "/api/3/workflow_collections/b046f25a-37cc-42ad-9a0f-f42eacfef6b4",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/e39073f7-a28d-4f1b-af3f-f65bb3d94199",
@@ -54,7 +54,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "bb620f9c-a8b1-49f5-b5e9-93b2fb6c4639",
-              "id": 12183
+              "id": 15293
             },
             {
               "@type": "WorkflowStep",
@@ -62,7 +62,7 @@
               "description": null,
               "arguments": {
                 "route": "efcb7435-ae08-4afb-ad21-cf3928faf4d6",
-                "title": "Google Cloud Storage: Get Buckets List Policy",
+                "title": "Google Cloud Storage: Get Bucket's List Policy",
                 "resources": [
                   "alerts"
                 ],
@@ -82,7 +82,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "e39073f7-a28d-4f1b-af3f-f65bb3d94199",
-              "id": 12184
+              "id": 15294
             }
           ],
           "routes": [
@@ -102,11 +102,11 @@
             "Google",
             "google-cloud-storage"
           ],
-          "id": 4121,
+          "id": 5318,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1632729446,
-          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1632729446,
+          "createDate": 1634565119,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1634565367,
           "owners": [],
           "isPrivate": false
         },
@@ -153,7 +153,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "b29f4bb3-10f7-43be-b5b8-4d367c31c736",
-              "id": 12185
+              "id": 15295
             },
             {
               "@type": "WorkflowStep",
@@ -180,7 +180,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "e0c64651-d214-4cb1-8010-81e0d93d7fbd",
-              "id": 12186
+              "id": 15296
             }
           ],
           "routes": [
@@ -200,11 +200,11 @@
             "Google",
             "google-cloud-storage"
           ],
-          "id": 4122,
+          "id": 5319,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1632729446,
+          "createDate": 1634565119,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1632729446,
+          "modifyDate": 1634565119,
           "owners": [],
           "isPrivate": false
         },
@@ -259,7 +259,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "10269fff-c557-42c9-8370-2b77b013fd66",
-              "id": 12187
+              "id": 15297
             },
             {
               "@type": "WorkflowStep",
@@ -287,7 +287,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "2e10ccac-e770-4ed9-9811-5f99c7ec8324",
-              "id": 12188
+              "id": 15298
             }
           ],
           "routes": [
@@ -307,11 +307,11 @@
             "Google",
             "google-cloud-storage"
           ],
-          "id": 4123,
+          "id": 5320,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1632729446,
+          "createDate": 1634565119,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1632729446,
+          "modifyDate": 1634565119,
           "owners": [],
           "isPrivate": false
         },
@@ -356,7 +356,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "4eab2c4c-612b-4ae9-9501-cb6fbfd4f1e6",
-              "id": 12189
+              "id": 15299
             },
             {
               "@type": "WorkflowStep",
@@ -384,7 +384,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "bf3c5730-bb31-44d9-bc43-7217be16f591",
-              "id": 12190
+              "id": 15300
             }
           ],
           "routes": [
@@ -404,11 +404,11 @@
             "Google",
             "google-cloud-storage"
           ],
-          "id": 4124,
+          "id": 5321,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1632729446,
+          "createDate": 1634565119,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1632729446,
+          "modifyDate": 1634565119,
           "owners": [],
           "isPrivate": false
         },
@@ -453,7 +453,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "41333218-b19d-4cbd-b2ef-891c035ec3a0",
-              "id": 12191
+              "id": 15301
             },
             {
               "@type": "WorkflowStep",
@@ -481,7 +481,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "97327dfb-afe4-4ec6-97a1-b79164cd36e5",
-              "id": 12192
+              "id": 15302
             }
           ],
           "routes": [
@@ -501,11 +501,11 @@
             "Google",
             "google-cloud-storage"
           ],
-          "id": 4125,
+          "id": 5322,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1632729446,
+          "createDate": 1634565119,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1632729446,
+          "modifyDate": 1634565119,
           "owners": [],
           "isPrivate": false
         },
@@ -549,7 +549,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "1cc30744-744f-466a-8e40-e1296f4bcbfb",
-              "id": 12193
+              "id": 15303
             },
             {
               "@type": "WorkflowStep",
@@ -585,7 +585,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "32444e39-2ce7-4531-9947-6be53c2f1d4a",
-              "id": 12194
+              "id": 15304
             }
           ],
           "routes": [
@@ -605,11 +605,11 @@
             "Google",
             "google-cloud-storage"
           ],
-          "id": 4126,
+          "id": 5323,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1632729446,
+          "createDate": 1634565119,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1632729446,
+          "modifyDate": 1634565119,
           "owners": [],
           "isPrivate": false
         },
@@ -653,7 +653,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "2039ca40-9739-4947-bf8e-2287a8679a14",
-              "id": 12195
+              "id": 15305
             },
             {
               "@type": "WorkflowStep",
@@ -681,7 +681,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "7f060124-8177-40fb-a741-5b6c2df75d01",
-              "id": 12196
+              "id": 15306
             }
           ],
           "routes": [
@@ -701,11 +701,11 @@
             "Google",
             "google-cloud-storage"
           ],
-          "id": 4127,
+          "id": 5324,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1632729446,
+          "createDate": 1634565119,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1632729446,
+          "modifyDate": 1634565119,
           "owners": [],
           "isPrivate": false
         },
@@ -751,7 +751,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "843e3d2b-eb36-4bbc-b9b6-fd8b19a01d3b",
-              "id": 12197
+              "id": 15307
             },
             {
               "@type": "WorkflowStep",
@@ -779,7 +779,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "eeaeb356-460d-4e80-8961-7732bf427ed2",
-              "id": 12198
+              "id": 15308
             }
           ],
           "routes": [
@@ -799,18 +799,18 @@
             "Google",
             "google-cloud-storage"
           ],
-          "id": 4128,
+          "id": 5325,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1632729446,
+          "createDate": 1634565119,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1632729446,
+          "modifyDate": 1634565119,
           "owners": [],
           "isPrivate": false
         },
         {
           "@type": "Workflow",
           "triggerLimit": null,
-          "name": "Get Buckets List Object Policy",
+          "name": "Get Bucket's List Object Policy",
           "aliasName": null,
           "tag": "#google-cloud-storage",
           "description": "Retrieves a list of access control entries associated with a object from Google Cloud Storage based on the bucket name, object name and other input parameter you have specified.",
@@ -819,7 +819,7 @@
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1632374517,
+          "lastModifyDate": 1634565329,
           "collection": "/api/3/workflow_collections/b046f25a-37cc-42ad-9a0f-f42eacfef6b4",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/351e0d37-e689-4748-9fe2-d530f6e2ac03",
@@ -830,7 +830,7 @@
               "description": null,
               "arguments": {
                 "route": "f28febca-9f7e-4b86-9e86-0823eb7ec9d3",
-                "title": "Google Cloud Storage: Get Buckets List Object Policy",
+                "title": "Google Cloud Storage: Get Bucket's List Object Policy",
                 "resources": [
                   "alerts"
                 ],
@@ -850,7 +850,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "351e0d37-e689-4748-9fe2-d530f6e2ac03",
-              "id": 12199
+              "id": 15309
             },
             {
               "@type": "WorkflowStep",
@@ -875,7 +875,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "900bc77c-d3a9-4445-a609-18aa666def5c",
-              "id": 12200
+              "id": 15310
             }
           ],
           "routes": [
@@ -895,11 +895,11 @@
             "Google",
             "google-cloud-storage"
           ],
-          "id": 4129,
+          "id": 5326,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1632729446,
-          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1632729446,
+          "createDate": 1634565119,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1634565329,
           "owners": [],
           "isPrivate": false
         },
@@ -946,7 +946,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "574af2b0-bd78-41f9-b4a8-0d73ab80b0dc",
-              "id": 12201
+              "id": 15311
             },
             {
               "@type": "WorkflowStep",
@@ -972,7 +972,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "880fa4bb-c591-430d-ad01-e66039b93ff0",
-              "id": 12202
+              "id": 15312
             }
           ],
           "routes": [
@@ -992,11 +992,11 @@
             "Google",
             "google-cloud-storage"
           ],
-          "id": 4130,
+          "id": 5327,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1632729446,
+          "createDate": 1634565119,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1632729446,
+          "modifyDate": 1634565119,
           "owners": [],
           "isPrivate": false
         },
@@ -1043,7 +1043,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "577423f5-cc1f-45dd-9b51-d6c678dc4f27",
-              "id": 12203
+              "id": 15313
             },
             {
               "@type": "WorkflowStep",
@@ -1071,7 +1071,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "5f736546-deb8-4ff1-a2ef-bc2638cb4a4b",
-              "id": 12204
+              "id": 15314
             }
           ],
           "routes": [
@@ -1091,11 +1091,11 @@
             "Google",
             "google-cloud-storage"
           ],
-          "id": 4131,
+          "id": 5328,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1632729446,
+          "createDate": 1634565119,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1632729446,
+          "modifyDate": 1634565119,
           "owners": [],
           "isPrivate": false
         },
@@ -1142,7 +1142,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "2b3dc36d-45eb-486d-8d7a-e206b2a1dbd9",
-              "id": 12205
+              "id": 15315
             },
             {
               "@type": "WorkflowStep",
@@ -1169,7 +1169,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "a9a270a7-3766-479d-802f-3aba2f6a4d30",
-              "id": 12206
+              "id": 15316
             }
           ],
           "routes": [
@@ -1189,11 +1189,11 @@
             "Google",
             "google-cloud-storage"
           ],
-          "id": 4132,
+          "id": 5329,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1632729446,
+          "createDate": 1634565119,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1632729446,
+          "modifyDate": 1634565119,
           "owners": [],
           "isPrivate": false
         },
@@ -1239,7 +1239,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "235a94fe-31bd-4eef-875c-3f72553859b6",
-              "id": 12207
+              "id": 15317
             },
             {
               "@type": "WorkflowStep",
@@ -1267,7 +1267,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "9ea13eb4-d27c-4a1e-8ad5-c90f6ffcab26",
-              "id": 12208
+              "id": 15318
             }
           ],
           "routes": [
@@ -1287,11 +1287,11 @@
             "Google",
             "google-cloud-storage"
           ],
-          "id": 4133,
+          "id": 5330,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1632729446,
+          "createDate": 1634565119,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1632729446,
+          "modifyDate": 1634565119,
           "owners": [],
           "isPrivate": false
         },
@@ -1339,7 +1339,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "uuid": "5f2857be-857d-465d-b932-ddfea36a90f2",
-              "id": 12209
+              "id": 15319
             },
             {
               "@type": "WorkflowStep",
@@ -1367,7 +1367,7 @@
               "left": "125",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "uuid": "f6c7f657-8a4e-4f87-9d8c-919f70a0aa20",
-              "id": 12210
+              "id": 15320
             }
           ],
           "routes": [
@@ -1387,11 +1387,11 @@
             "Google",
             "google-cloud-storage"
           ],
-          "id": 4134,
+          "id": 5331,
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1632729446,
+          "createDate": 1634565119,
           "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1632729446,
+          "modifyDate": 1634565119,
           "owners": [],
           "isPrivate": false
         }
